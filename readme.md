@@ -11,9 +11,26 @@ This project is a skeleton setup for Playwright, including examples for core fun
    - Navigate to the project directory and run the following command to install all necessary dependencies:
         npm install
 
+3. **Install Playwright**
+   - Install the latest version of Playwright: 
+         npm init playwright@latest
+
 ## Running Tests
 
 Run all Tests for all projects via ***npx playwright test***
+
+1. **Run Tests in Headed Mode**
+   - This command runs tests in headed mode: </br>
+         ***npx playwright test --headed***
+   - This is useful for debugging or demonstration purposes, as you see visuallly how Plywright interacts with the website. 
+
+2. **Run Specific Test by Test Name**
+   - This command selects a test via its name for execution: </br>
+         ***npx playwright test -g "test name"***
+
+3. **Run Tests in Selected Browser(s)**
+   - This command allows you to run tests in a selected browser: </br>
+         ***npx playwright test --project firefox***
 
 The project includes several npm scripts to facilitate running tests. Here are the available shortcuts:
 
