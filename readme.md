@@ -19,6 +19,7 @@ The ***dotenv*** and ***cross-env*** packages are now used, for dynamic loading 
 
 A different env can be provided by `npx cross-env ENV=<name> <runTests>`.
 This command should work on all machines and environments.
+Example: `npx cross-env ENV=local npm run dummyTests`
 
 The project includes several npm scripts to facilitate running tests. Here are the available shortcuts:
 

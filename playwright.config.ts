@@ -5,9 +5,9 @@ import dotenv from '@dotenvx/dotenvx';
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-const defaultEnv = process.env.ENV || 'prod'
+const currentEnv = process.env.ENV || 'prod'
 dotenv.config({
-  path: `./env/.env.${defaultEnv}`,
+  path: `./env/.env.${currentEnv}`,
 })
 
 /**
