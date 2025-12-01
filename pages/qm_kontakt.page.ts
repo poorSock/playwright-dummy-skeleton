@@ -6,7 +6,7 @@ export class QmKontaktPage extends QmMainPage {
     readonly page: Page;
     readonly isMobile: boolean;
     readonly txtName: Locator
-    readonly txtKommentar: Locator
+    readonly txtNachricht: Locator
     readonly btnSenden: Locator
     readonly lblErrorMessageEMail: Locator
 
@@ -15,7 +15,7 @@ export class QmKontaktPage extends QmMainPage {
       this.page = page;
       this.isMobile = isMobile;
       this.txtName = page.getByPlaceholder('Vorname');
-      this.txtKommentar = page.getByPlaceholder('Kommentar');
+      this.txtNachricht = page.getByPlaceholder('Nachricht');
       this.btnSenden = page.getByRole('button', {name: 'Senden'});
       this.lblErrorMessageEMail = page.locator('li').filter({ hasText: 'E-Mail Adresse' });
     }

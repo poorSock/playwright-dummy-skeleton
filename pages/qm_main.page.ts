@@ -11,8 +11,8 @@ export class QmMainPage {
     constructor(page: Page) {
         this.page = page;
         this.mobileBurgerMenu = page.locator('[class=mobile_menu_bar]').first();
-        this.linkPortfolio = page.getByRole('link', {name: 'PORTFOLIO'});
-        this.linkKontakt = page.getByRole('link', {name: 'KONTAKT', exact: true});
+        this.linkPortfolio = page.getByRole('link', {name: 'Portfolio', exact: true});
+        this.linkKontakt = page.getByLabel('Footer menu').getByRole('link', {name: 'Kontakt', exact: true});
         this.btnDeclineCookies = page.getByRole('button', {name: 'Ablehnen'});
       }
 
@@ -21,7 +21,7 @@ export class QmMainPage {
         await this.btnDeclineCookies.click();
       }
 
-      async headerLinksDoExist(isMobile){
+      async headerLinksDoExist(isMobile: boolean){
         if (isMobile){
           await this.clickMobileMenuBar();
         }
