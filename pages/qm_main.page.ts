@@ -10,9 +10,9 @@ export class QmMainPage {
 
     constructor(page: Page) {
         this.page = page;
-        this.mobileBurgerMenu = page.locator('[class=mobile_menu_bar]').first();
+        this.mobileBurgerMenu = page.getByLabel('Toggle navigation menu');
         this.linkPortfolio = page.getByRole('link', {name: 'Portfolio', exact: true});
-        this.linkKontakt = page.getByLabel('Footer menu').getByRole('link', {name: 'Kontakt', exact: true});
+        this.linkKontakt = page. getByLabel('Services menu').getByRole('link', {name: 'Kontakt'});
         this.btnDeclineCookies = page.getByRole('button', {name: 'Ablehnen'});
       }
 
@@ -30,6 +30,6 @@ export class QmMainPage {
       }
 
       protected async clickMobileMenuBar(){
-        await this.mobileBurgerMenu.evaluate((element: HTMLElement) => element.click());
+        await this.mobileBurgerMenu.click();
       }
 }

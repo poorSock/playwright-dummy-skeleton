@@ -13,11 +13,14 @@ test.describe('kontakt page tests', async () => {
   });
 
   test('can go to contact page and read error messages', async ({ qmKontaktPage }) => {
+    await expect(qmKontaktPage.txtEMailErrorMsg).not.toBeVisible();
     await qmKontaktPage.txtNachricht.fill('TestKommentar');
     await qmKontaktPage.txtName.fill('Testname');
-    await expect(qmKontaktPage.lblErrorMessageEMail).not.toBeVisible();
-    await qmKontaktPage.btnSenden.click();
-    await expect(qmKontaktPage.lblErrorMessageEMail).toBeVisible();
+    await qmKontaktPage.chkDatenschutz.check();
+    await expect(qmKontaktPage.lblErrorMsg).not.toBeVisible();
+    await qmKontaktPage.btnAbsenden.click();
+    await expect(qmKontaktPage.txtEMailErrorMsg).toBeVisible();
+    await expect(qmKontaktPage.lblErrorMsg).toBeVisible();
   });
 });
 

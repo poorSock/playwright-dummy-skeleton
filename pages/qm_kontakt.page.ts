@@ -7,8 +7,11 @@ export class QmKontaktPage extends QmMainPage {
     readonly isMobile: boolean;
     readonly txtName: Locator
     readonly txtNachricht: Locator
-    readonly btnSenden: Locator
-    readonly lblErrorMessageEMail: Locator
+    readonly txtEMail: Locator
+    readonly txtEMailErrorMsg: Locator
+    readonly btnAbsenden: Locator
+    readonly chkDatenschutz: Locator
+    readonly lblErrorMsg: Locator
 
     constructor(page: Page, isMobile: boolean) {
       super(page);
@@ -16,8 +19,13 @@ export class QmKontaktPage extends QmMainPage {
       this.isMobile = isMobile;
       this.txtName = page.getByPlaceholder('Vorname');
       this.txtNachricht = page.getByPlaceholder('Nachricht');
-      this.btnSenden = page.getByRole('button', {name: 'Senden'});
-      this.lblErrorMessageEMail = page.locator('li').filter({ hasText: 'E-Mail Adresse' });
+      this.txtEMail = page.getByPlaceholder('E-Mail*');
+      this.txtEMailErrorMsg = this.txtEMail.locator('..').getByText('Bitte füllen Sie dieses Feld aus.');
+      this.btnAbsenden = page.getByRole('button', {name: 'Absenden'});
+      this.chkDatenschutz = page.getByRole('checkbox')
+      this.lblErrorMsg = page
+        .getByLabel('Kontaktformular')
+        .getByText('In einem oder mehreren Feldern ist ein Fehler aufgetreten. Bitte überprüfen Sie dies und versuchen Sie es erneut.');
     }
 
     async goto() {
